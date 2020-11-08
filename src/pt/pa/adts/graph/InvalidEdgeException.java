@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.brunomnsilva.smartgraph.graph;
+package pt.pa.adts.graph;
 
 /**
  * Error when using an invalid edge in calls of methods in {@link Graph}

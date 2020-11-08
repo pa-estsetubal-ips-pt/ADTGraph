@@ -1,7 +1,7 @@
-/*
+/* 
  * The MIT License
  *
- * Copyright 2019 brunomnsilva.
+ * Copyright 2019 brunomnsilva@gmail.com.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,27 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.brunomnsilva.smartgraph.graphview;
+package pt.pa.adts.graph;
 
 /**
- * A node to which a {@link SmartLabel} can be attached.
+ * A vertex contains an element of type <code>V</code> and is used both in
+ * graphs and digraphs.
  * 
- * @author brunomnsilva
+ * @param <V> Type of value stored in the vertex.
+ * 
+ * @see Graph
+ * @see Digraph
  */
-public interface SmartLabelledNode {
+public interface Vertex<V> {
     
     /**
-     * Own and bind the <code>label</code> position to the desired position.
+     * Returns the element stored in the vertex.
      * 
-     * @param label     text label node
+     * @return      stored element
      */
-    public void attachLabel(SmartLabel label);
-    
-    /**
-     * Returns the attached text label, if any.
-     * 
-     * @return      the text label reference or null if no label is attached
-     */
-    public SmartLabel getAttachedLabel();
-    
+    public V element();
 }

@@ -21,23 +21,38 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.brunomnsilva.smartgraph.graph;
+package pt.pa.model;
+
+import java.util.*;
+
+import pt.pa.model.Local;
+import pt.pa.model.MapManager;
 
 /**
- * Error when using an invalid vertex in calls of methods in {@link Graph}
- * and {@link Digraph} implementations.
- * 
- * @see Graph
- * @see Digraph
+ *
+ * @author brunomnsilva
  */
-public class InvalidVertexException extends RuntimeException {
+public class ModelMain {
 
-    public InvalidVertexException() {
-        super("The vertex is invalid or does not belong to this graph.");
+    private volatile boolean running;
+
+       /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        MapManager map = new MapManager();
+        map.build_map_example();
+
+        ArrayList<Local> path= new ArrayList();
+        double cost = map.minimumCostPath( "A","E",path);
+
+        System.out.println(" \n\n Custo minimo " + cost+ " Shortest Path " + path);
+        System.out.println(map.toStringLocals(MapManager.MODE.BREADTH,"A"));
+        System.out.println(map.toStringLocals(MapManager.MODE.DEPTH,"A"));
+        
     }
 
-    public InvalidVertexException(String string) {
-        super(string);
-    }
-    
+
+
+
 }

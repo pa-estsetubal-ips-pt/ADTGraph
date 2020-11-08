@@ -21,13 +21,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.brunomnsilva.smartgraph.graph;
+package pt.pa.adts.graph;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * ADT Graph implementation that stores a collection of edges (and vertices) and
@@ -263,7 +259,50 @@ public class GraphEdgeList<V, E> implements Graph<V, E> {
         return edges.containsKey(edgeElement);
     }
 
-    @Override
+    public Collection<Vertex<V>> dfs_order(Vertex<V> vertex)throws InvalidVertexException {
+        Vertex<V> v, w;
+        Stack<Vertex<V>> stack = new Stack();
+        stack.push(vertex);
+        Set<Vertex<V>> visited = new HashSet();
+        visited.add(vertex);
+        ArrayList<Vertex<V>> list = new ArrayList<>();
+        while (!stack.empty()) {
+            v = stack.pop();
+            list.add(v);
+            for (Edge edge : incidentEdges(v)) {
+                w = opposite(v, edge);
+                if (!visited.contains(w)) {
+                    visited.add(w);
+                    stack.push(w);
+                }
+
+            }
+        }
+        return list;
+    }
+
+    public Collection<Vertex<V>> bfs_order(Vertex<V> vertex)throws InvalidVertexException {
+        Vertex<V> v, w;
+       Queue<Vertex<V>> queue = new LinkedList();
+       queue.offer(vertex);
+        Set<Vertex<V>> visited = new HashSet();
+        visited.add(vertex);
+        ArrayList<Vertex<V>> list = new ArrayList<>();
+        while (!queue.isEmpty()) {
+            v = queue.poll();
+            list.add(v);
+            for (Edge edge : incidentEdges(v)) {
+                w = opposite(v, edge);
+                if (!visited.contains(w)) {
+                    visited.add(w);
+                    queue.offer(w);
+                }
+
+            }
+        }
+        return list;
+    }
+        @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(
                 String.format("Graph with %d vertices and %d edges:\n", numVertices(), numEdges())

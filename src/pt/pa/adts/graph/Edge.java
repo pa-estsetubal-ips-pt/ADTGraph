@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.brunomnsilva.smartgraph.graph;
+package pt.pa.adts.graph;
 
 /**
  * An edge connects two {@link Vertex} of type <code>V</code> and stores
@@ -33,7 +33,7 @@ package com.brunomnsilva.smartgraph.graph;
  * @param <V> Type of value stored in the vertices that this edge connects.
  * 
  * @see Graph
- * @see Digraph
+ *
  */
 public interface Edge<E, V> {
     

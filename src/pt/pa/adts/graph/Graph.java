@@ -21,9 +21,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.brunomnsilva.smartgraph.graph;
+package pt.pa.adts.graph;
 
-import java.util.Collection;
+import java.util.*;
 
 /**
  * A graph is made up of a set of vertices connected by edges, where the edges 
@@ -239,4 +239,8 @@ public interface Graph<V, E> {
      *                                      method.
      */
     public E replace(Edge<E, V> e, E newElement) throws InvalidEdgeException;
-}
+    public Collection<Vertex<V>> dfs_order(Vertex<V> vertex)throws InvalidVertexException;
+    public Collection<Vertex<V>> bfs_order (Vertex<V> vertex)throws InvalidVertexException;
+
+
+    }
