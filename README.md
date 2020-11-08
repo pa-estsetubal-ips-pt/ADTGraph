@@ -4,5 +4,5 @@
 - GraphEdgeList - Graph implementation using List of Edges
 - GraphUtils - Static Class with utility methods about graphs -  
 
-# Model - Konisnberg bridges example
+# Model - Konigsberg bridges example
 - Implementation of Shortest Path Algorithm
